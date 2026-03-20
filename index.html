@@ -112,8 +112,8 @@ body.light .ctr{color:rgba(39,61,83,.4)}
 .logo-big{font-family:'Montserrat',sans-serif;font-size:clamp(64px,12vw,110px);font-weight:800;letter-spacing:-3px;line-height:1;color:#fff;margin-bottom:6px}
 .logo-big span{color:var(--gold)}
 .logo-sub{font-size:clamp(11px,1.4vw,13px);letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:400;margin-bottom:52px}
-.cover-h{font-family:'Montserrat',sans-serif;font-size:clamp(19px,2.4vw,24px);font-weight:700;color:rgba(255,255,255,.92);line-height:1.35;margin-bottom:8px;text-wrap:balance}
-.cover-sub{font-family:'Montserrat',sans-serif;font-size:clamp(14px,1.8vw,18px);font-weight:400;color:rgba(255,255,255,.55);letter-spacing:.5px;line-height:1.4;text-wrap:balance}
+.cover-h{font-family:'Montserrat',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:rgba(255,255,255,.92);line-height:1.35;margin-bottom:8px;text-wrap:balance}
+.cover-sub{font-family:'Montserrat',sans-serif;font-size:clamp(16px,2.2vw,22px);font-weight:400;color:rgba(255,255,255,.55);letter-spacing:.5px;line-height:1.4;text-wrap:balance}
 /* bus-icon removido — agora usa vis-bus-anim inline */
 
 /* ══════════════════════════════
@@ -122,6 +122,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
 .s2{background:linear-gradient(155deg,#111e2b 0%,#1a2a3a 50%,#1e3347 100%)}
 .s2::after{content:'';position:absolute;width:min(55vw,500px);height:min(55vw,500px);border-radius:50%;background:radial-gradient(circle,rgba(28,119,121,.28) 0%,transparent 68%);bottom:-15%;right:-8%;pointer-events:none}
 .s2-body{position:relative;z-index:2;text-align:center;width:100%;max-width:900px;padding:40px 24px}
+.s2-body .lbl,.s2-body .sec-t{text-align:left}
 .lbl{font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
 .sec-t{font-family:'Montserrat',sans-serif;font-size:clamp(26px,5vw,50px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:42px}
 .stats{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:540px;margin:0 auto 36px}
@@ -315,7 +316,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
 }
 .dtxt{font-family:'Montserrat',sans-serif;font-size:clamp(14px,2vw,20px);font-weight:700;color:var(--navy);line-height:1.35;text-align:center}
 .adcode{display:inline-block;background:linear-gradient(135deg,var(--gold),var(--gold-l));color:#3a2800;font-family:'Montserrat',sans-serif;font-size:26px;font-weight:800;padding:7px 22px;border-radius:11px;letter-spacing:3px;margin-top:2px}
-.dcta{font-size:12px;color:var(--teal);background:rgba(28,119,121,.1);border:1px solid rgba(28,119,121,.22);border-radius:8px;padding:7px 14px}
+.dcta{font-size:15px;color:var(--teal);background:rgba(28,119,121,.1);border:1px solid rgba(28,119,121,.22);border-radius:8px;padding:7px 14px}
 
 /* ══════════════════════════════
    SLIDE 10 — FINAL
@@ -687,7 +688,8 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important;
     animation:none !important;transition:none !important}
   html,body{margin:0 !important;padding:0 !important;background:#fff !important;overflow:visible !important;width:100% !important}
-  .nav,.dots,.ctr,.brand,.brand-mark,.no-print,.config-screen,.pat,.wa-float,.wa-card-btn,#cnv,.slide-vis,.s8-visual{display:none !important}
+  .nav,.dots,.ctr,.brand,.brand-mark,.no-print,.config-screen,.wa-float,#cnv{display:none !important}
+  .wa-card-btn{display:inline-flex !important}
   .slide::before,.slide::after{display:none !important}
   .deck{position:relative !important;width:100% !important;height:auto !important;overflow:visible !important}
   .slide{
@@ -699,13 +701,16 @@ body.light .ctr{color:rgba(39,61,83,.4)}
     overflow:visible !important;
   }
   .slide:first-child{display:none !important}
-  .has-vis{display:flex !important;grid-template-columns:1fr !important}
+  .has-vis{display:grid !important;grid-template-columns:1fr 1fr !important}
+  .has-vis .slide-vis{display:flex !important;align-items:center !important;justify-content:center !important}
+  .has-vis .slide-vis svg{width:100% !important;max-width:300px !important}
   .s{opacity:1 !important;transform:none !important}
   .s2-body,.s3-body,.func-body,.con-body,.sup-body,.seg-body,.par-body,.fin-body{
     overflow:visible !important;max-height:none !important;height:auto !important
   }
   .s8-split{display:none !important}
   .s8-print{display:block !important}
+  .s8-visual{display:none !important}
   #giftCard{display:none !important}
   #discountReveal{display:block !important}
   #discountReveal *{opacity:1 !important;transform:none !important}
@@ -729,15 +734,14 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   .bd{font-size:12px !important;color:#3a5a70 !important}
   /* PDF — Slide 4: bullets lado a lado */
   .func-list{grid-template-columns:1fr 1fr !important;gap:10px !important}
-  /* PDF — Slide 6: mostrar imagem do mapa de rotas */
-  .s6.has-vis .slide-vis{display:block !important}
-  .s6.has-vis{display:grid !important;grid-template-columns:1fr 1fr !important}
-  .s6 .slide-vis svg{width:100% !important;max-width:300px !important}
   /* PDF — Slide 9: mais espaco entre codigo, email e desconto */
-  .adcode{margin-top:16px !important;margin-bottom:16px !important}
-  .dcta{margin-top:12px !important}
-  .dnum{margin-bottom:10px !important}
-  .dtxt{margin-bottom:14px !important}
+  .par-badge{margin-bottom:24px !important}
+  .par-s{margin-bottom:28px !important}
+  .par-client{margin-bottom:32px !important}
+  .dnum{font-size:clamp(60px,10vw,90px) !important;margin-bottom:16px !important}
+  .dtxt{margin-bottom:20px !important;font-size:clamp(16px,2vw,22px) !important}
+  .adcode{margin-top:20px !important;margin-bottom:20px !important;font-size:30px !important;padding:10px 28px !important}
+  .dcta{margin-top:16px !important;font-size:16px !important}
 }
 </style>
 </head>
@@ -800,8 +804,8 @@ body.light .ctr{color:rgba(39,61,83,.4)}
         <img src="Logo.svg" height="56" alt="BUSTKT" style="display:block">
       </div>
     </div>
-    <div class="logo-sub s d2">B2B &nbsp;·&nbsp; Mercado Corporativo</div>
-    <div class="s d3" style="margin:0 auto 20px">
+    <div class="logo-sub s d2" style="margin-bottom:24px">B2B &nbsp;·&nbsp; Mercado Corporativo</div>
+    <div class="s d3" style="margin:0 auto 24px">
       <svg viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg" style="width:clamp(200px,32vw,360px);filter:drop-shadow(0 16px 50px rgba(212,168,67,.3));animation:busFloat 3.5s ease-in-out infinite">
         <defs>
           <linearGradient id="cvBusG" x1="0" y1="0" x2="1" y2="1">
@@ -893,7 +897,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   <div class="pat pat--dots"></div>
   <div class="s2-body">
     <div class="lbl s d1">Nossa plataforma em números</div>
-    <div class="sec-t s d2">Sua empresa conectada a todo o Brasil</div>
+    <div class="sec-t s d2" style="font-size:clamp(20px,3vw,42px)">Sua empresa conectada a todo o Brasil</div>
     <div class="stats5 s d3">
       <div class="stat-c">
         <div class="stat-ico">
@@ -1159,7 +1163,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   <div class="pat pat--bus"></div>
   <div class="func-body">
     <div class="lbl s d1">Sistema completo</div>
-    <div class="sec-t s d2">Funcionalidades</div>
+    <div class="sec-t s d2" style="margin-bottom:6px">Funcionalidades</div>
     <div class="ds s d3" style="color:rgba(255,255,255,.6);max-width:100%;margin-bottom:0">Facilidades na busca, reserva, emissão e gestão de passagens</div>
     <div class="func-list">
       <div class="fi fi-dk s d4"><div class="fn">01</div><div><div class="ft ft-w">Busca de Passagens</div><div class="fd fd-l">Acesso às saídas com 1h de antecedência</div></div></div>
@@ -1282,7 +1286,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   <div class="pat pat--road"></div>
   <div class="con-body">
     <div class="lbl s d1">Atendimento Premium</div>
-    <div class="sec-t s d2">Serviço de Concierge</div>
+    <div class="sec-t s d2" style="margin-bottom:6px">Serviço de Concierge</div>
     <div class="ds s d3" style="color:rgba(255,255,255,.6);max-width:100%;margin-bottom:0">Equipe dedicada para oferecer o melhor atendimento!</div>
     <div class="con-grid">
       <div class="cc s d4">
@@ -1452,12 +1456,20 @@ body.light .ctr{color:rgba(39,61,83,.4)}
         <div style="margin-bottom:10px;font-size:14px">📧 suporte@bustkt.com.br</div>
         <div style="margin-bottom:6px;font-size:14px">📱 (11) 97085-8729 <span style="color:rgba(255,255,255,.5);font-size:12px">Atendimento</span></div>
         <div style="font-size:14px">🚨 (11) 99186-1511 <span style="color:rgba(255,255,255,.5);font-size:12px">Emergencial</span></div>
+        <a class="wa-card-btn" href="https://wa.me/5511970858729?text=Ol%C3%A1!%20Preciso%20de%20suporte%20BUSTKT.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" style="margin-top:12px">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Suporte
+        </a>
       </div>
       <div style="flex:1;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:24px">
         <div style="font-size:11px;font-weight:700;letter-spacing:3px;color:rgba(212,168,67,.9);margin-bottom:14px">COMERCIAL</div>
         <div style="margin-bottom:10px;font-size:14px">👤 Gustavo Vernet</div>
         <div style="margin-bottom:10px;font-size:14px">📧 gustavo@bustkt.com.br</div>
         <div style="font-size:14px">📱 (11) 94744-7827</div>
+        <a class="wa-card-btn" href="https://wa.me/5511947447827?text=Ol%C3%A1%20Gustavo!%20Vi%20a%20apresenta%C3%A7%C3%A3o%20da%20BUSTKT%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20iniciar%20uma%20parceria%20comercial.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" style="margin-top:12px">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Falar com Comercial
+        </a>
       </div>
     </div>
   </div>
@@ -1557,11 +1569,11 @@ body.light .ctr{color:rgba(39,61,83,.4)}
       </div>
     </div>
     <div class="fin-sub s d2" style="font-size:clamp(14px,1.8vw,20px);letter-spacing:3px;color:rgba(255,255,255,.55);font-weight:500;margin-bottom:20px;text-align:center">B2B &nbsp;·&nbsp; Passagem Rodoviária</div>
-    <div class="fin-cta s d3" style="text-align:center;max-width:580px;font-size:clamp(14px,2vw,22px);margin-bottom:16px;color:rgba(255,255,255,.55)">Tecnologia que move o transporte rodoviário</div>
+    <div class="fin-cta s d3" style="text-align:center;max-width:580px;font-size:clamp(14px,2vw,22px);margin-bottom:16px;color:rgba(255,255,255,.55);background:none;-webkit-background-clip:unset;-webkit-text-fill-color:#fff;background-clip:unset;animation:none">Tecnologia que move o transporte rodoviário</div>
     <div class="fin-line s d4"></div>
     <div class="s d5" style="font-size:clamp(38px,6vw,72px);font-weight:900;color:var(--gold);text-align:center;line-height:1;margin-bottom:16px;letter-spacing:-1px">Boas Vendas!</div>
-    <div class="s d6 no-print" style="margin-top:28px;display:inline-flex;gap:14px;justify-content:center;flex-wrap:wrap">
-      <button onclick="window.print()" style="padding:14px 32px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(28,119,121,.35)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>Exportar PDF</button>
+    <div class="s d6" style="margin-top:28px;display:inline-flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <button class="no-print" onclick="window.print()" style="padding:14px 32px;border-radius:12px;border:none;background:linear-gradient(135deg,var(--teal),var(--teal-l));color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(28,119,121,.35)"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 18 15 15"/></svg>Exportar PDF</button>
       <a href="https://wa.me/5511947447827?text=Ol%C3%A1%20Gustavo!%20Vi%20a%20apresenta%C3%A7%C3%A3o%20da%20BUSTKT%20e%20gostaria%20de%20saber%20mais%20sobre%20como%20iniciar%20uma%20parceria%20comercial.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener" style="padding:14px 32px;border-radius:12px;border:none;background:#25D366;color:#fff;font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:10px;transition:transform .2s,box-shadow .2s;box-shadow:0 6px 24px rgba(37,211,102,.35);text-decoration:none"><svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>Falar com Comercial</a>
     </div>
   </div>
@@ -1953,8 +1965,11 @@ window.addEventListener('afterprint', ()=>{
   });
   const g = document.getElementById('giftCard');
   const r = document.getElementById('discountReveal');
-  if(g) g.style.display = '';
-  if(r){ r.style.display = ''; r.style.opacity = ''; }
+  const wasRevealed = g && g.style.display === 'none';
+  if(!wasRevealed){
+    if(g) g.style.display = '';
+    if(r){ r.style.display = ''; r.style.opacity = ''; }
+  }
 });
 </script>
 </body>
