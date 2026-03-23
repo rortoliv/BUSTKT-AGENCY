@@ -26,8 +26,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'Montserrat',sans-s
   transition:transform .72s cubic-bezier(.77,0,.18,1),opacity .5s ease;
   pointer-events:none;overflow:hidden;
 }
-.slide.active{overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
-.slide.active::-webkit-scrollbar{display:none}
+.slide.active{overflow:hidden}
 .slide.active{opacity:1;transform:translateX(0);pointer-events:all}
 .slide.exit{opacity:0;transform:translateX(-100%)}
 
@@ -228,7 +227,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
 .seg-body{
   position:relative;z-index:2;text-align:left;
   width:100%;max-width:800px;
-  padding:56px 52px 40px;
+  padding:72px 52px 40px;
   overflow-y:auto;max-height:100dvh;max-height:100vh;
   scrollbar-width:none;
 }
@@ -420,8 +419,10 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   padding-right:20px;
   align-self:center;
 }
-/* extra: seg-body on split — no hard overflow-y cut */
-.has-vis .seg-body{overflow-y:visible;max-height:none}
+.has-vis .seg-body{
+  align-self:flex-start;
+  overflow-y:auto;max-height:100vh;max-height:100dvh;
+}
 
 /* Right visual column */
 .slide-vis{
@@ -571,7 +572,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
 
   /* Dots — menos espaço embaixo */
   .dots{bottom:8px}
-  .ctr{top:10px;right:12px;font-size:10px}
+  .ctr{top:auto;bottom:24px;left:20px;right:auto;font-size:10px}
 
   /* Tags — menores */
   .tag{padding:5px 11px;font-size:11px}
@@ -686,7 +687,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   .dot.on{width:16px}
 }
 @media print{
-  @page{margin:0;size:landscape}
+  @page{margin:0;size:20in 11.25in}
   *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;color-adjust:exact !important;
     animation:none !important;transition:none !important}
   html,body{margin:0 !important;padding:0 !important;background:#fff !important;overflow:visible !important;width:100% !important}
@@ -697,7 +698,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   .slide{
     position:relative !important;inset:auto !important;
     opacity:1 !important;transform:none !important;pointer-events:all !important;
-    width:100vw !important;min-height:100vh !important;height:auto !important;
+    width:100% !important;min-height:100vh !important;height:100vh !important;
     page-break-after:always;page-break-inside:avoid;
     display:flex !important;align-items:center !important;justify-content:center !important;
     overflow:visible !important;
@@ -705,45 +706,45 @@ body.light .ctr{color:rgba(39,61,83,.4)}
   .slide:first-child{display:none !important}
   .has-vis{display:grid !important;grid-template-columns:1fr 1fr !important}
   .has-vis .slide-vis{display:flex !important;align-items:center !important;justify-content:center !important}
-  .has-vis .slide-vis svg{width:100% !important;max-width:300px !important}
+  .has-vis .slide-vis svg{width:100% !important;max-width:500px !important}
   .s{opacity:1 !important;transform:none !important}
   .s2-body,.s3-body,.func-body,.con-body,.sup-body,.seg-body,.par-body,.fin-body{
     overflow:visible !important;max-height:none !important;height:auto !important
   }
+  /* Slide 8: usar versão print */
   .s8-split{display:none !important}
   .s8-print{display:block !important}
   .s8-visual{display:none !important}
+  /* Slide 9 */
   #giftCard{display:none !important}
   #discountReveal{display:block !important}
   #discountReveal *{opacity:1 !important;transform:none !important}
-  .print-logo{display:block !important;position:absolute;z-index:10;height:32px;width:auto;background:rgba(255,255,255,.92);padding:6px 14px;border-radius:8px}
-  .print-logo-tl{top:20px;left:24px}
-  .print-logo-tr{top:20px;right:24px}
-  .print-logo-br{bottom:20px;right:24px}
-  .print-logo-bl{bottom:20px;left:24px}
-  .print-ctr{display:block !important;position:absolute;top:24px;z-index:10;font-family:Montserrat,sans-serif;font-size:10px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:1px}
+  /* Logo nos cantos */
+  .print-logo{display:block !important;position:absolute;z-index:10;height:48px;width:auto;background:rgba(255,255,255,.92);padding:10px 20px;border-radius:10px}
+  .print-logo-tl{top:28px;left:32px}
+  .print-logo-tr{top:28px;right:32px}
+  .print-logo-br{bottom:28px;right:32px}
+  .print-logo-bl{bottom:28px;left:32px}
+  .print-ctr{display:block !important;position:absolute;top:32px;z-index:10;font-family:Montserrat,sans-serif;font-size:14px;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:2px}
   .slide[data-theme="light"] .print-ctr{color:rgba(0,0,0,.4)}
-  /* PDF — Slide 1: onibus abaixo do texto */
-  .s1-body{display:flex !important;flex-direction:column-reverse !important}
-  .s1-body svg{width:clamp(160px,24vw,280px) !important}
-  /* PDF — Slide 2: aumentar fonte dos textos dos bullets */
-  .stat-l{font-size:16px !important;color:rgba(255,255,255,.85) !important}
-  .stat-txt{font-size:18px !important}
-  .stat-n{font-size:52px !important}
-  /* PDF — Slide 3: corrigir texto ilegivel (mesma cor do fundo) */
+  /* PDF — Slide 1 */
+  .s1-body{display:flex !important;flex-direction:column !important;align-items:center !important;justify-content:center !important}
+  /* PDF — Slide 3: corrigir cor ilegivel */
   .bc{background:#fff !important;border:1.5px solid rgba(28,119,121,.25) !important}
-  .bn{font-size:14px !important;color:#1a2a3a !important}
-  .bd{font-size:12px !important;color:#3a5a70 !important}
+  .bn{color:#1a2a3a !important}
+  .bd{color:#3a5a70 !important}
   /* PDF — Slide 4: bullets lado a lado */
-  .func-list{grid-template-columns:1fr 1fr !important;gap:10px !important}
-  /* PDF — Slide 9: mais espaco entre codigo, email e desconto */
+  .func-list{grid-template-columns:1fr 1fr !important}
+  /* PDF — Slide 7: seguro centralizado */
+  .seg-body{align-self:center !important;overflow:visible !important;max-height:none !important}
+  /* PDF — Slide 9: espaçamento */
   .par-badge{margin-bottom:24px !important}
   .par-s{margin-bottom:28px !important}
   .par-client{margin-bottom:32px !important}
-  .dnum{font-size:clamp(60px,10vw,90px) !important;margin-bottom:16px !important}
-  .dtxt{margin-bottom:20px !important;font-size:clamp(16px,2vw,22px) !important}
-  .adcode{margin-top:20px !important;margin-bottom:20px !important;font-size:30px !important;padding:10px 28px !important}
-  .dcta{margin-top:16px !important;font-size:16px !important}
+  .dnum{margin-bottom:16px !important}
+  .dtxt{margin-bottom:18px !important}
+  .adcode{margin-top:18px !important;margin-bottom:18px !important}
+  .dcta{margin-top:14px !important}
 }
 </style>
 </head>
@@ -1434,7 +1435,7 @@ body.light .ctr{color:rgba(39,61,83,.4)}
         <path d="M22.03 29.4 22.03 35.418C22.03 51.823 31.693 68.118 48.012 79.445 64.33 68.112 73.993 51.823 73.993 35.425L73.993 29.4C64.2764 27.8542 55.2355 23.4649 48.011 16.786 40.7884 23.4671 31.7471 27.8567 22.03 29.4ZM71.993 35.428C71.993 50.658 63.055 66.107 48.012 76.993 32.969 66.1 24.03 50.652 24.03 35.415L24.03 31.075C32.9011 29.3693 41.1696 25.3664 48.01 19.466 54.8519 25.367 63.121 29.3718 71.993 31.081Z" fill="#1C7779" opacity=".35"/>
       </svg>
       <div class="vis-pills">
-        <span class="vis-pill lt">R$ 30.000 Cobertura Médica</span>
+        <span class="vis-pill lt">R$ 10.000 Cobertura Médica</span>
         <span class="vis-pill au">R$ 300 Odontológica</span>
         <span class="vis-pill lt">R$ 10.000 Traslado</span>
         <span class="vis-pill au">R$ 10.000 Morte Acidental</span>
